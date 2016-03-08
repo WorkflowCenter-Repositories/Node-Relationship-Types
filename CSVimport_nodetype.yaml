@@ -1,0 +1,74 @@
+node_types:
+# general task
+  workflow_service:
+    derived_from: cloudify.nodes.ApplicationModule
+    properties:
+      block_description:
+        description: Description of the block function
+        type: string
+      block_name:
+        type: string
+      block_category:
+        type: string
+      service_type:
+        type: string
+
+# CSVimport task
+  csvimport:
+    derived_from: workflow_service
+    properties:
+      source:
+        type: string
+        default: ' '
+      start_row:
+        type: integer
+        default: 1
+      label_row:
+        type: integer
+        default: 1
+      ContainsLabels:
+        description: Data contains a row with column names
+        type: boolean
+        default: true
+      Delimiter:
+        description: Column delimiter character
+        type: string
+        default: ' '
+      EndRow:
+        description: Last row of data to be imported
+        type: integer
+        default: 2
+      LimitRows:
+        description: Stop importing after the specified number of rows
+        type: boolean
+        default: false
+      Subsample:
+        description: description="Subsample the imported data
+        type: boolean
+        default: false
+      SampleInterval:
+        description: Subsampling row interval
+        type: integer
+        default: 1
+      TextOnly:
+        description: Treat all data as String values
+        type: boolean
+        default: false
+      ImportChunkSize:
+        description: Number of rows in each data chunk
+        type: integer
+        default: 5000
+      DebugMode:
+        type: boolean
+        default: false
+      DebugSuspended:
+        type: boolean
+        default: true
+      DebugPort:
+        type: integer
+        default: 5005
+      output-1:
+        type : string
+        default: output_port
+
+

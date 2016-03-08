@@ -1,0 +1,40 @@
+node_types:
+# general task
+  workflow_service:
+    derived_from: cloudify.nodes.ApplicationModule
+    properties:
+      block_description:
+        description: Description of the block function
+        type: string
+      block_name:
+        type: string
+      block_category:
+        type: string
+      service_type:
+        type: string
+# Filter Duplicate task
+
+  filterDupl:
+    derived_from: workflow_service
+    properties:
+      Normalize_Sequence_Names:
+        type: boolean
+        default: false
+      Normalize_Duplicates_Only:
+        type: boolean
+        default: false
+      #input
+      fasta-files:
+        type: string
+        default: file-wrapper
+      #outputs:
+      filtered-fasta-files:
+        type: string
+        default: file-wrapper
+      removed-sequences:
+        type: string
+        default: data-wrapper
+      sequence-map:
+        type: string
+        default: data-wrapper
+

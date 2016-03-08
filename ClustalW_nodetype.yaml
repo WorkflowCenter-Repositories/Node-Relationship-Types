@@ -1,0 +1,33 @@
+node_types:
+# general task
+  workflow_service:
+    derived_from: cloudify.nodes.ApplicationModule
+    properties:
+      block_description:
+        description: Description of the block function
+        type: string
+      block_name:
+        type: string
+      block_category:
+        type: string
+      service_type:
+        type: string
+# ClustalW task
+
+  clustalW:
+    derived_from: workflow_service
+    properties:
+      Align:
+        type: string
+        default: true
+      Output-Type:
+        type: string
+        default: CLUSTAL
+      #input
+      input-sequences:
+        type: string
+        default: file-wrapper
+      #output:
+      aligned-sequences:
+        type: string
+        default: file-wrapper

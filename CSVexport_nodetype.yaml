@@ -1,0 +1,48 @@
+node_types:
+# general task
+  workflow_service:
+    derived_from: cloudify.nodes.ApplicationModule
+    properties:
+      block_description:
+        description: Description of the block function
+        type: string
+      block_name:
+        type: string
+      block_category:
+        type: string
+      service_type:
+        type: string
+# CSVexport task
+
+  csvexport:
+    derived_from: workflow_service
+    properties:
+      AutomaticFolder:
+        type: boolean
+        default: true
+      FileName:
+        type: string
+        default: out.csv
+      TargetFolder:
+        type: string
+        default: ' '
+      IncludeNames:
+        description: Include the column names in the output file
+        type: boolean
+        default: true
+      DQuoteStringOutput:
+        description: Surround all String output in Quotes
+        type: boolean
+        default: false
+      #input
+      input-data:
+        type: string
+        default: data-wrapper
+      # service output
+      document-id:
+        type: string
+        default: data-wrapper
+      file-reference:
+        type: string
+        default: link-wrapper
+
