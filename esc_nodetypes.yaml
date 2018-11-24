@@ -12,6 +12,10 @@ node_types:
         type: string
       service_type:
         type: string
+      block_Url: 
+        type: string 
+        default: '' 
+
 # eSc blocks
 
   colinvert:
