@@ -12,22 +12,11 @@ node_types:
         type: string
       service_type:
         type: string
-      block_Url:
-        type: string
-        default: ''
+      block_Url: 
+        type: string 
+        default: '' 
+
 # eSc blocks
-  importfile:
-    derived_from: workflow_service
-    properties:
-      Source:
-        type: string
-        default: ''
-      DebugMode:
-        type: boolean
-        default: false
-      output-1:
-        type: string
-        default: file-wrapper
 
   colinvert:
     derived_from: workflow_service
@@ -43,52 +32,6 @@ node_types:
       output-1:
         type: string
         default: data-wrapper
-
-  exportfiles:
-    derived_from: workflow_service
-    properties:
-      targetfolder:
-        type: string
-        default: ''
-      automaticfolder:
-        description: save this data set to the automatic workflow directory
-        type: boolean
-        default: true
-      savetolastimportfolder:
-        description: Use the last folder that had data imported from it by this workflow.
-        type: boolean
-        default: false
-      Comments:
-        description: Comments to attach to data files
-        type: string
-        default: Saved data
-      makepublic:
-        description: make uploaded files public
-        type: boolean
-        default: false
-      savetosubdirectory:
-        description: Save the results to a subdirectory of the target folder
-        type: boolean
-        default: false
-      Subdirectory:
-        description: Subdirectory to save results to
-        type: string
-        default: processed
-      uploadmetadata:
-        description: Should this block attach the metadata that has been propagated into it to the uploaded files
-        type: boolean
-        default: false
-      #input:
-      file-list:
-        type: string
-        default: file-wrapper
-      # service outputs
-      file-ids:
-        type: string
-        default: data-wrapper
-      file-references:
-        type: string
-        default: link-wrapper
 
   mega-nj:
     derived_from: workflow_service
@@ -280,18 +223,6 @@ node_types:
         default: file-wrapper
       #output:
       aligned-sequences:
-        type: string
-        default: file-wrapper
-
-  zipFile:
-    derived_from: workflow_service
-    properties:
-      #input
-      input-1:
-        type: string
-        default: file-wrapper
-      #output:
-      output-1:
         type: string
         default: file-wrapper
 
@@ -706,8 +637,12 @@ relationships:
   block_link:
     derived_from: cloudify.relationships.depends_on
 
+# relationships for feature work
+  FileWrapperLink:
+    derived_from: block_link
 
+  DataWrapperLink:
+    derived_from: block_link
 
   
           
-
